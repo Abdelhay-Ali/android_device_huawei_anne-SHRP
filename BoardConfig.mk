@@ -71,6 +71,7 @@ TW_USE_NEW_MINADBD := true
 
 
 
+
 # Selinux
 SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
@@ -96,10 +97,20 @@ SHRP_PATH := device/huawei/anne
 #SHRP_EDL_MODE := 1
 SHRP_INTERNAL := /sdcard
 SHRP_EXTERNAL := /sdcard1
-#SHRP_REC_TYPE := SAR
-#SHRP_DEVICE_TYPE := A_Only
-#SHRP_AB := true
-#SHRP_DARK := true
+
+# Recovery Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_REC_TYPE := Normal
+
+# Device Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_DEVICE_TYPE := A/B
+
+# Use this flag only if your device is A/B.
+# Default (if not set) is no A/B device
+# Set this variable when true ONLY (do not use "false" or similiar)
+SHRP_AB := true
+
 
 
 # SHRP addons
@@ -111,64 +122,46 @@ SHRP_EXCLUDE_MAGISK_FLASH := true
 
 
 SHRP_EXTERNAL_ADDON_PATH := "device/huawei/anne/addon/"
-SHRP_EXTERNAL_ADDON_1_NAME := " Decrypt Data"
-SHRP_EXTERNAL_ADDON_1_INFO := "Decrypt Data"
-SHRP_EXTERNAL_ADDON_1_FILENAME := "Decrypt_Data.zip"
+SHRP_EXTERNAL_ADDON_1_NAME := "Active Default Data - Decrypt Data"
+SHRP_EXTERNAL_ADDON_1_INFO := "Active Default Data profile and Decrypt Data"
+SHRP_EXTERNAL_ADDON_1_FILENAME := "Active-Default-Data-Profile-v2.zip"
 SHRP_EXTERNAL_ADDON_1_BTN_TEXT := "Flash"
 SHRP_EXTERNAL_ADDON_1_SUCCESSFUL_TEXT := "Flashed Successfully"
 SHRP_INC_IN_REC_EXTERNAL_ADDON_1 := true
 
-#SHRP_EXTERNAL_ADDON_PATH := "device/huawei/anne/addon/"
-#SHRP_EXTERNAL_ADDON_2_NAME := "SELinux Fix"
-#SHRP_EXTERNAL_ADDON_2_INFO := "SELinux Fix for A13 -Please first backup your vendor partition"
-#SHRP_EXTERNAL_ADDON_2_FILENAME := "Selinux-fix-Yahia-V5.0.zip"
-#SHRP_EXTERNAL_ADDON_2_BTN_TEXT := "Flash"
-#SHRP_EXTERNAL_ADDON_2_SUCCESSFUL_TEXT := "Flashed Successfully"
-#SHRP_INC_IN_REC_EXTERNAL_ADDON_2 := true
-
-#SHRP_EXTERNAL_ADDON_3_NAME := "AIO patch"
-#SHRP_EXTERNAL_ADDON_3_INFO := "A13 Fixes-fix offline charging NFC etc -Please first backup your vendor partition"
-#SHRP_EXTERNAL_ADDON_3_FILENAME := "AIO-Fix-A13-v1.3.1-opt.zip"
-#SHRP_EXTERNAL_ADDON_3_BTN_TEXT := "Flash"
-#SHRP_EXTERNAL_ADDON_3_SUCCESSFUL_TEXT := "Flashed Successfully"
-#SHRP_INC_IN_REC_EXTERNAL_ADDON_3 := true
-
-SHRP_EXTERNAL_ADDON_2_NAME := "Kernel 4.9.319 Permissive"
-SHRP_EXTERNAL_ADDON_2_INFO := "Flash Kernel 4.9.319 Permissive"
-SHRP_EXTERNAL_ADDON_2_FILENAME := "Kernel-4.9.319-permissive.zip"
+SHRP_EXTERNAL_ADDON_2_NAME := "Active New Data Profile"
+SHRP_EXTERNAL_ADDON_2_INFO := "Active New Data Profile that located /data/profile2-  to return to Default Data Profile (/data)  press first option Decrypt Data  "
+SHRP_EXTERNAL_ADDON_2_FILENAME := "Active-New-Data-Profile-v2.zip"
 SHRP_EXTERNAL_ADDON_2_BTN_TEXT := "Flash"
 SHRP_EXTERNAL_ADDON_2_SUCCESSFUL_TEXT := "Flashed Successfully"
+SHRP_INC_IN_REC_EXTERNAL_ADDON_2 := true
 
-
-SHRP_EXTERNAL_ADDON_3_NAME := "Magisk delta 25.2"
-SHRP_EXTERNAL_ADDON_3_INFO := "Flash Magisk delta 25.2 over recovery_ramdisk"
-SHRP_EXTERNAL_ADDON_3_FILENAME := "Magisk-delta-25200.zip"
+SHRP_EXTERNAL_ADDON_3_NAME := "Active Default System partition"
+SHRP_EXTERNAL_ADDON_3_INFO := "Use it if you have create a dual System partition -otherwise your device will be briked"
+SHRP_EXTERNAL_ADDON_3_FILENAME := "Active-Default-System-partition-arm64-v2.zip"
 SHRP_EXTERNAL_ADDON_3_BTN_TEXT := "Flash"
 SHRP_EXTERNAL_ADDON_3_SUCCESSFUL_TEXT := "Flashed Successfully"
+SHRP_INC_IN_REC_EXTERNAL_ADDON_3 := true
 
-#SHRP_EXTERNAL_ADDON_6_NAME := "Magisk  25.2"
-#SHRP_EXTERNAL_ADDON_6_INFO := "Flash 25.2 over recovery_ramdisk"
-#SHRP_EXTERNAL_ADDON_6_FILENAME := "Magisk-25200.zip"
-#SHRP_EXTERNAL_ADDON_6_BTN_TEXT := "Flash"
-#SHRP_EXTERNAL_ADDON_6_SUCCESSFUL_TEXT := "Flashed Successfully"
-
-SHRP_EXTERNAL_ADDON_4_NAME := "Active Default System partition"
+SHRP_EXTERNAL_ADDON_4_NAME := "Active New System partition"
 SHRP_EXTERNAL_ADDON_4_INFO := "Use it if you have create a dual System partition -otherwise your device will be briked"
-SHRP_EXTERNAL_ADDON_4_FILENAME := "Active-Default-System-partition.zip"
+SHRP_EXTERNAL_ADDON_4_FILENAME := "Active-New-System-partition-arm64-v2.zip"
 SHRP_EXTERNAL_ADDON_4_BTN_TEXT := "Flash"
 SHRP_EXTERNAL_ADDON_4_SUCCESSFUL_TEXT := "Flashed Successfully"
 SHRP_INC_IN_REC_EXTERNAL_ADDON_4 := true
 
-SHRP_EXTERNAL_ADDON_5_NAME := "Active New System partition"
-SHRP_EXTERNAL_ADDON_5_INFO := "Use it if you have create a dual System partition -otherwise your device will be briked"
-SHRP_EXTERNAL_ADDON_5_FILENAME := "Active-New-System-partition.zip"
+
+
+SHRP_EXTERNAL_ADDON_5_NAME := "Kernel 4.9.319 Permissive"
+SHRP_EXTERNAL_ADDON_5_INFO := "Flash Kernel 4.9.319 Permissive"
+SHRP_EXTERNAL_ADDON_5_FILENAME := "Kernel-4.9.319-permissive.zip"
 SHRP_EXTERNAL_ADDON_5_BTN_TEXT := "Flash"
 SHRP_EXTERNAL_ADDON_5_SUCCESSFUL_TEXT := "Flashed Successfully"
-SHRP_INC_IN_REC_EXTERNAL_ADDON_5 := true
 
-SHRP_EXTERNAL_ADDON_6_NAME := "Active New Data Profile"
-SHRP_EXTERNAL_ADDON_6_INFO := "Active New Data Profile that located /data/profile2-  to return to Default Data Profile (/data)  press first option Decrypt Data  "
-SHRP_EXTERNAL_ADDON_6_FILENAME := "Active-New-Data-Profile.zip"
+
+SHRP_EXTERNAL_ADDON_6_NAME := "Magisk delta 25.2"
+SHRP_EXTERNAL_ADDON_6_INFO := "Flash Magisk delta 25.2 over recovery_ramdisk"
+SHRP_EXTERNAL_ADDON_6_FILENAME := "Magisk-delta-25200.zip"
 SHRP_EXTERNAL_ADDON_6_BTN_TEXT := "Flash"
 SHRP_EXTERNAL_ADDON_6_SUCCESSFUL_TEXT := "Flashed Successfully"
-SHRP_INC_IN_REC_EXTERNAL_ADDON_6 := true
+
